@@ -30,7 +30,7 @@ def check(ip, prox):
 	except:
 		ipx = ip
 	if ip != ipx:
-		print(Fore.GREEN+"{} good!".format(prox))
+		print(Fore.BLUE+"{} good!".format(prox))
 		f = open("proxies.txt", "a+")
 		f.write("{}\n".format(prox))
 		f.close()
