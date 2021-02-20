@@ -13,7 +13,7 @@ gey = colored("""
  |_|   |_|  \___/_/\_\\__, | |_|   \__,_|_|  |___/\___|_|   
                        __/ |                                
                       |___/                                 
-                                 Creators: https://t.me/termux901
+                                 Creators: https://t.me/termux999 
 """, "blue")
 
 print(gey)
@@ -26,12 +26,12 @@ def clear():
 
 def check(ip, prox):
 	try:
-		ipx = r.get("http://fsystem88.ru/ip", proxy={'http':'http://{}'.format(prox), 'https':'http://{}'.format(prox)}, verify=False, timeout=10).text
+		ipx = r.get("http://fsystem88.ru/ip", proxies={'http':'http://{}'.format(prox), 'https':'http://{}'.format(prox)}, verify=False, timeout=10).text
 	except:
 		ipx = ip
 	if ip != ipx:
 		print(Fore.BLUE+"{} good!".format(prox))
-		f = open("proxy.txt", "a+")
+		f = open("proxies.txt", "a+")
 		f.write("{}\n".format(prox))
 		f.close()
 	else:
@@ -44,9 +44,10 @@ ip = r.post("http://fsystem88.ru/ip").text
 array = req.text.split()
 clear()
 print(Fore.LIGHTYELLOW_EX+"Your ip: {}".format(ip)+Style.RESET_ALL)
-open("proxy.txt", "w+").close()
+open("proxies.txt", "w+").close()
 for prox in array:
 	thread_list = []
 	t = threading.Thread (target=check, args=(ip, prox))
 	thread_list.append(t)
 	t.start()
+
