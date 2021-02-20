@@ -26,12 +26,12 @@ def clear():
 
 def check(ip, prox):
 	try:
-		ipx = r.get("http://fsystem88.ru/ip", proxies={'http':'http://{}'.format(prox), 'https':'http://{}'.format(prox)}, verify=False, timeout=10).text
+		ipx = r.get("http://fsystem88.ru/ip", proxy={'http':'http://{}'.format(prox), 'https':'http://{}'.format(prox)}, verify=False, timeout=10).text
 	except:
 		ipx = ip
 	if ip != ipx:
 		print(Fore.BLUE+"{} good!".format(prox))
-		f = open("proxies.txt", "a+")
+		f = open("proxy.txt", "a+")
 		f.write("{}\n".format(prox))
 		f.close()
 	else:
@@ -44,7 +44,7 @@ ip = r.post("http://fsystem88.ru/ip").text
 array = req.text.split()
 clear()
 print(Fore.LIGHTYELLOW_EX+"Your ip: {}".format(ip)+Style.RESET_ALL)
-open("proxies.txt", "w+").close()
+open("proxy.txt", "w+").close()
 for prox in array:
 	thread_list = []
 	t = threading.Thread (target=check, args=(ip, prox))
