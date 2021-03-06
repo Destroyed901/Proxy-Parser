@@ -13,7 +13,7 @@ gey = colored("""
  |_|   |_|  \___/_/\_\\__, | |_|   \__,_|_|  |___/\___|_|   
                        __/ |                                
                       |___/                                 
-                                 Creators: https://t.me/termux999
+                                Rick daun
 """, "blue")
 
 print(gey)
